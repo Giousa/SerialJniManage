@@ -25,6 +25,9 @@ public class MyApplication extends Application {
         exeShell();
     }
 
+    /**
+     * 必须是在root的基础上，开启权限，弹框后，不要忘记点击允许哦
+     */
     private void exeShell() {
         changeSerialPortMode(mSerialPath, "777");
         openSerialPort(mSerialPath);

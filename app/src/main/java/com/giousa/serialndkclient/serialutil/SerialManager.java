@@ -41,6 +41,9 @@ public class SerialManager {
         }
     };
 
+    /**
+     * 打开串口，设置波特率，这里可以随意
+     */
     public void openSerial() {
         Serial.OpenSerial(4);
         setSerialBaud(555);
@@ -48,15 +51,25 @@ public class SerialManager {
         mHandler.postDelayed(mTimerRunnable, 0);
     }
 
+    /**
+     * 关闭串口
+     */
     public void closeSerial() {
         mHandler.removeCallbacks(mTimerRunnable);
         Serial.CloseSerial();
     }
 
+    /**
+     * 设置波特率
+     * @param baud
+     */
     public void setSerialBaud(long baud) {
         Serial.SetSerialBaud(baud);
     }
 
+    /**
+     * 读取串口，协议定义的是长度为9的short数组
+     */
     public void readSerial() {
 
         short[] mShorts = new short[9];
@@ -79,6 +92,10 @@ public class SerialManager {
         }
     }
 
+    /**
+     * 写入数据到串口
+     * @param WriteBuf
+     */
     public void writeSerial(short[] WriteBuf) {
         Log.d(TAG,"writeSerial:"+WriteBuf[2]+"     length:"+WriteBuf.length);
         Serial.WriteSerialBuf(WriteBuf, WriteBuf.length);

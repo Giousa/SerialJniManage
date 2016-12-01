@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements SerialManager.Ser
         Log.d("串口数据：","speed="+speed);
     }
 
+    /**
+     * 发送数据，要根据具体协议，这里定义的是长度为9的数组
+     */
     private void sendNowelData() {
 
         mNoweData[0] = 0x55;
